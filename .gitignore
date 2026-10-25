@@ -1,14 +1,5 @@
-# Explicit publication allowlist: runtime files stay private.
 /*
 !/.gitignore
-!/README.md
 !/config/
 /config/*
-!/config/server.example.cfg
-!/docs/
-/docs/*
-!/docs/provenance.md
-!/assets.json
-!/tools/
-/tools/*
-!/tools/verify_assets.py
+!/config/promod.cfg
