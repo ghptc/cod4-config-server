@@ -34,9 +34,9 @@ rotation silently. This is asset/script coverage, not certification of every
 map's competitive balance, navigation or bomb objectives.
 
 The companion engine preparation must enable `--allow-map-voting`, which removes
-only Promod's original competition voting prohibition. Bots satisfy the original
-Ready Up loop after selecting a playing team and class; human use-button and
-recording checks remain. Ready Up is enabled, not bypassed. Completed matches
+only Promod's original competition voting prohibition. Only eligible human players contribute to Ready Up; bots are excluded and a
+bot-only lobby waits for a human. Human use-button and recording checks remain.
+Ready Up is enabled. Completed matches
 exit through native rotation; individual S&D rounds still restart the same map.
 Passed player votes select the next map before shuffled rotation resumes.
 
@@ -76,7 +76,8 @@ extracted scripts, binaries or credentials belong in this repository.
 and Killhouse remain excluded as documented by the original authors. Player capacity
 is explicitly 12; zombie counts are the mod's own wave policy, not
 Promod Auto-Fill. `bot_enable=0` prevents attaching the Promod integration.
-Promod configuration is unchanged. Hardcore remains unavailable until separately
+Promod retains its existing Bot Warfare auto-fill behavior with explicit mode-owned
+settings. Hardcore remains unavailable until separately
 registered and qualified.
 
 The original archive SHA-256 is
@@ -113,3 +114,14 @@ The candidate passed 53 local engine startup/map/preflight checks, including all
 companion generic string-latch correction. Evidence:
 `/tmp/cod4-btd-qualified-biebk8zp/results.json`. The unchanged Promod policy passed
 53 independent real-runtime checks. No combat/homolog approval is implied.
+
+
+## Required CI
+
+`Configuration tests` runs on hosted GitHub CI for PRs and pushes to master. It
+uses the existing workspace catalog validator at exact revision
+`37f83f6927c93a10a078fb4748c37e52d42f8e5a`; no private assets are needed. The active
+[master ruleset](https://github.com/ghptc/cod4-config-server/rules/25857702)
+requires this GitHub Actions check with an up-to-date branch and no bypass actors.
+Local tests alone do not establish branch protection. See the workspace
+restoration report for live CI evidence and Zombies real-client blockers.
