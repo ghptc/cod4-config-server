@@ -1,19 +1,32 @@
 # CoD4 configuration catalog
-
-<p align="center">
-  <img src="assets/nvg-star-emblem.gif"
-       alt="NVG Star Emblem"
-       width="180">
-</p>
-
-Canonical repository: https://github.com/ghptc/cod4-config-server
-
-Promod LIVE 2.20 is implemented. Before the Dawn Alpha 001 has a separate
-Zombies configuration candidate, qualified for local startup but not yet for
-combat or artifact promotion. The engine and private script preparation
-belong to `cod4x-server`; packaging and startup argv belong to `ec2-workspace`.
-Private assets, credentials and historical local installations remain ignored.
-
+<table>
+  <tr>
+    <td width="160" align="center">
+      <img
+        src="assets/nvg-star-emblem.gif"
+        alt="NVG Star Emblem"
+        width="130"
+      />
+    </td>
+    <td>
+      <p>
+        Canonical repository:
+        <a href="https://github.com/ghptc/cod4-config-server">
+          ghptc/cod4-config-server
+        </a>
+      </p>
+      <p>
+        Promod LIVE 2.20 is implemented. Before the Dawn Alpha 001
+        has a separate Zombies configuration candidate, qualified
+        for local startup but not yet for combat or artifact promotion.
+        The engine and private script preparation belong to
+        <code>cod4x-server</code>; packaging and startup argv belong
+        to <code>ec2-workspace</code>. Private assets, credentials
+        and historical local installations remain ignored.
+      </p>
+    </td>
+  </tr>
+</table>
 ## Ownership and startup
 
 - `shared/server.cfg` supplies defaults. Private CFGs supply credentials and
