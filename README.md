@@ -83,9 +83,11 @@ engine revision, authorized asset identities and immutable image identity.
 3. Load the existing private runtime overrides in their existing relative order.
    Preserve their files and credentials. Reject conflicting filesystem selection
    arguments before launch; do not let inherited settings silently change modes.
-4. Start the first map from the selected rotation after configuration loading.
-   An existing explicit private startup-map override retains precedence only if
-   validated as compatible with the selected mode.
+4. Start native rotation after configuration loading. With `sv_randomMapRotation=1`,
+   the qualified engine also routes a fresh `+map` launch through native shuffled
+   rotation; later administrator `map` commands retain their explicit target.
+   For a deterministic private startup map, set `sv_randomMapRotation=0` and
+   validate the explicit map as compatible with the selected mode.
 
 Switching modes requires an explicit container recreation using qualified assets
 and this startup sequence, with health checks and rollback. A matching `fs_game`
@@ -222,3 +224,9 @@ an explicitly reviewed configuration SHA would also allow rebuilding an older
 configuration independently of the current master. These changes belong in a
 separate workspace review. No sibling repositories were modified here.
 
+
+Promod gameplay rotation requires the companion engine gameplay correction:
+`promod_auto_maprotate=1` lets the prepared Promod overlay exit at completed
+match end, while ordinary S&D rounds still restart. `sv_randomMapRotation=1`
+uses the native shuffle, including fresh startup, and avoids immediate repeats.
+Native player-selected next maps retain precedence. Neither setting deploys code.
