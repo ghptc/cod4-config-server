@@ -1,5 +1,50 @@
-/*
-!/.gitignore
-!/config/
-/config/*
-!/config/promod.cfg
+# Private environment and credentials
+.env
+.env.*
+*.pem
+*.key
+/.aws/
+/.ssh/
+/config/*.private.cfg
+/config/secrets.cfg
+
+# Historical local installation; not canonical configuration
+/config/server.cfg
+/config/server.example.cfg
+
+# Private game assets and generated runtime state
+/game/
+/.downloads/
+*.ff
+*.iwd
+*.dat
+
+# Build output, logs, backups and temporary files
+/artifacts/
+/build/
+/dist/
+/backups/
+*.log
+*.log.*
+*.bak
+*.tmp
+*.swp
+*~
+__pycache__/
+
+# Historical orchestration/tooling; review in the owning repository before moving
+/compose.yaml
+/compose.promod.backup.yaml
+/compose.pure-test.yaml
+/scripts/
+/tools/
+/docker/
+/infra/
+/assets.json
+
+# Superseded local publication review; retained for provenance
+/docs/provenance.md
+
+# Private runtime overrides at any catalog level
+*.private.cfg
+secrets.cfg
