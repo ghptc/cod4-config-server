@@ -8,7 +8,9 @@
 
 Canonical repository: https://github.com/ghptc/cod4-config-server
 
-Only Promod LIVE 2.20 is implemented. The engine and private script preparation
+Promod LIVE 2.20 is implemented. Before the Dawn Alpha 001 has a separate
+Zombies configuration candidate, qualified for local startup but not yet for
+combat or artifact promotion. The engine and private script preparation
 belong to `cod4x-server`; packaging and startup argv belong to `ec2-workspace`.
 Private assets, credentials and historical local installations remain ignored.
 
@@ -38,9 +40,9 @@ rotation silently. This is asset/script coverage, not certification of every
 map's competitive balance, navigation or bomb objectives.
 
 The companion engine preparation must enable `--allow-map-voting`, which removes
-only Promod's original competition voting prohibition. Bots satisfy the original
-Ready Up loop after selecting a playing team and class; human use-button and
-recording checks remain. Ready Up is enabled, not bypassed. Completed matches
+only Promod's original competition voting prohibition. Only eligible human players contribute to Ready Up; bots are excluded and a
+bot-only lobby waits for a human. Human use-button and recording checks remain.
+Ready Up is enabled. Completed matches
 exit through native rotation; individual S&D rounds still restart the same map.
 Passed player votes select the next map before shuffled rotation resumes.
 
@@ -71,3 +73,61 @@ Removing a catalog mode does not change an already packaged artifact.
 Historical `config/`, `game/`, `backups/`, `artifacts/`, Compose files and local
 tools are preserved privately under existing ignore rules. No game assets,
 extracted scripts, binaries or credentials belong in this repository.
+
+
+## Before the Dawn Zombies candidate
+
+`modes/zombies/mode.cfg` selects the original `mods/btd_alpha_001` directory;
+`server.cfg` selects `war` and the original package's 15-map rotation. District
+and Killhouse remain excluded as documented by the original authors. Player capacity
+is explicitly 12; zombie counts are the mod's own wave policy, not
+Promod Auto-Fill. `bot_enable=0` prevents attaching the Promod integration.
+Promod retains its existing Bot Warfare auto-fill behavior with explicit mode-owned
+settings. Hardcore remains unavailable until separately
+registered and qualified.
+
+The original archive SHA-256 is
+`dad2e94a92823844ab411f3dfadd0f2dacc491b9df3416db8b1a1f9fb9f4d410`.
+Private inputs are original `mod.ff`, `btd_images.iwd`, `btd_music.iwd`,
+`btd_weapons.iwd` and the vendor CFGs. Engine preparation verifies all files,
+preserves original bytes/notices and never decompiles the fastfile. No
+redistribution grant was found in its readme; no assets or vendor CFG copies are
+included in this repository.
+
+The original sample server CFG is deliberately excluded from runtime preparation:
+it embeds sample passwords, an old download URL and an exec for absent
+`btd_trade.cfg`. The workspace packages verified vendor defaults into the shared
+phase, then private CFGs, then this canonical mode policy. Original admin identity
+settings belong in a private CFG. Music stays disabled by canonical policy.
+There is no nested exec or filesystem selection in the gameplay CFG.
+
+Local real-engine startup checks cover all listed maps, purity, header loading,
+private conflicts and fresh processes. Actual native zombie combat, client asset
+loading and container transitions remain qualification gates. Catalog discovery
+is not homologation or production authorization. The engine `change_mode`
+preflight currently reports all activation targets unavailable and changes
+nothing; no privileged RCON control channel is enabled.
+
+Current workspace image building remains intentionally limited to Promod. Its
+separate BTD private packaging support does not enable image promotion, downloads,
+builds or deployments from RCON. See the engine RCON investigation for exact
+hashes, original-package findings, test limits and rollback. To revert this
+candidate, revert its catalog commit; existing packaged Promod artifacts retain
+their exact configuration and identity.
+
+The candidate passed 53 local engine startup/map/preflight checks, including all
+15 configured maps and the private `sd` versus canonical `war` conflict after the
+companion generic string-latch correction. Evidence:
+`/tmp/cod4-btd-qualified-biebk8zp/results.json`. The unchanged Promod policy passed
+53 independent real-runtime checks. No combat/homolog approval is implied.
+
+
+## Required CI
+
+`Configuration tests` runs on hosted GitHub CI for PRs and pushes to master. It
+uses the existing workspace catalog validator at exact revision
+`37f83f6927c93a10a078fb4748c37e52d42f8e5a`; no private assets are needed. The active
+[master ruleset](https://github.com/ghptc/cod4-config-server/rules/25857702)
+requires this GitHub Actions check with an up-to-date branch and no bypass actors.
+Local tests alone do not establish branch protection. See the workspace
+restoration report for live CI evidence and Zombies real-client blockers.
