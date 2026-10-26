@@ -44,3 +44,7 @@ __pycache__/
 
 # Superseded local publication review; retained for provenance
 /docs/provenance.md
+
+# Private runtime overrides at any catalog level
+*.private.cfg
+secrets.cfg
