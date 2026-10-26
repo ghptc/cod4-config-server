@@ -1,0 +1,27 @@
+name: Configuration
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+permissions:
+  contents: read
+jobs:
+  configuration:
+    name: Configuration tests
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          path: catalog
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          repository: ghptc/ec2-workspace
+          ref: 37f83f6927c93a10a078fb4748c37e52d42f8e5a
+          path: contract
+      - name: Validate every mode with the existing discovery contract
+        run: |
+          for mode in catalog/modes/*; do
+            python3 contract/scripts/modes.py select catalog "${mode##*/}"
+          done
+          python3 -m unittest discover -s contract/tests -p test_modes.py
