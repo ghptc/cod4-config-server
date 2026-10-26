@@ -8,9 +8,10 @@ Private assets, credentials and historical local installations remain ignored.
 
 ## Ownership and startup
 
-- `shared/server.cfg` supplies defaults. Private CFGs may override environment
-  defaults such as voice/download settings, and supply credentials and networking.
-  Purity remains 1; filesystem selection belongs to startup metadata.
+- `shared/server.cfg` supplies defaults. Private CFGs supply credentials and
+  permitted environment overrides, such as the download base URL. Original
+  Promod competition rules still enforce their voice/download settings. Purity
+  remains 1; filesystem selection belongs to startup metadata.
 - `modes/<id>/mode.cfg` contains only literal startup `fs_game` metadata.
 - `modes/<id>/server.cfg` owns every setting it declares: mode identity, capacity,
   gameplay, rotation and voting. Private CFGs cannot override those settings.
