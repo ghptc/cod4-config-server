@@ -1,5 +1,11 @@
 # CoD4 configuration catalog
 
+<p align="center">
+  <img src="assets/nvg-star-emblem.gif"
+       alt="NVG Star Emblem"
+       width="180">
+</p>
+
 Canonical repository: https://github.com/ghptc/cod4-config-server
 
 Promod LIVE 2.20 is implemented. Before the Dawn Alpha 001 has a separate
