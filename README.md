@@ -177,3 +177,17 @@ supervised homologation qualification by exact reviewed image digest.
 Rollback: revert this configuration commit, rebuild through the existing
 workspace pipeline from reviewed master revisions and obtain operator approval
 before deployment. Existing artifacts are unchanged by catalog edits.
+
+The final Promod feature candidate declares `bot_use_names=1` and
+`bot_sd_objectives=1`. `modes/promod/botnames.txt` mixes the requested COD4 and
+fictional American military names. Keep each line unique ignoring case, at most
+31 ASCII bytes, using letters, numbers, spaces, dots and hyphens. Names apply at
+bot creation; existing players are never renamed. The matching engine and
+workspace changes are required: packaging binds this file into configuration
+identity and installs it as root `scriptdata/botnames.txt`.
+
+S&D retains native bomb ownership and full plant/defuse timers. This is a
+candidate pending independent review, mandatory CI, supported-map qualification
+and supervised real-client gameplay. No deployment is authorized. After this
+focused feature delivery, return all three repositories to feature freeze.
+Rollback uses the previous reviewed engine/config/workspace artifact together.
