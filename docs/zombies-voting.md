@@ -63,6 +63,11 @@ BTD integration passes 73/73 checks across the original 15 maps, Killhouse and
 restart (`/tmp/cod4-btd-qualified-5r_ixsre`); Promod passes 53/53
 (`/tmp/cod4x-promod-integration-1v8iw1em`). Engine unit suite passes 60 tests
 with one skip; native rotation and voting suites and mocked operations pass.
+Final native Killhouse regression passes 12/12
+(`/tmp/btd-navigation-w7ngrvsr`): 101 nodes, 25 linked spawns, pathing, chase,
+melee, bullet combat, wave progression, respawn, camping and map transitions.
+BTD lifecycle also passes (`/tmp/btd-death-regression-a2gi__hy`), including
+death, respawn, wave progression, admission and administrative transitions.
 Independent agent review found no code blockers in either PR and independently
 reran all 12 preparation tests. Full logs, private assets and disposable test
 fixtures stay outside these PRs. Synthetic clients and accelerated fixtures
