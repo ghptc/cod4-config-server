@@ -191,3 +191,7 @@ candidate pending independent review, mandatory CI, supported-map qualification
 and supervised real-client gameplay. No deployment is authorized. After this
 focused feature delivery, return all three repositories to feature freeze.
 Rollback uses the previous reviewed engine/config/workspace artifact together.
+
+Development is frozen outside focused qualification and remediation of this
+final candidate. No additional features, deployment or bridge activation are
+authorized by this PR.
