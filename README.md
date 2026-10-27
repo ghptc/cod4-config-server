@@ -92,8 +92,9 @@ extracted scripts, binaries or credentials belong in this repository.
 ## Before the Dawn Zombies candidate
 
 `modes/zombies/mode.cfg` selects the original `mods/btd_alpha_001` directory;
-`server.cfg` selects `war` and the original package's 15-map rotation. District
-and Killhouse remain excluded as documented by the original authors. Player capacity
+`server.cfg` selects `war`, preserves the original 15 maps in order and appends
+Killhouse using the reviewed navigation preparation. District remains excluded.
+Killhouse requires real-client homologation qualification before it is qualified. Player capacity
 is explicitly 12; zombie counts are the mod's own wave policy, not
 Promod Auto-Fill. `bot_enable=0` prevents attaching the Promod integration.
 Promod retains its existing Bot Warfare auto-fill behavior with explicit mode-owned
