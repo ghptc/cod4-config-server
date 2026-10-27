@@ -22,5 +22,15 @@ class ZombiesVoting(unittest.TestCase):
                 self.assertEqual(values[name], value)
         maps = re.findall(r'\bmap (mp_\w+)', values['sv_mapRotation'])
         self.assertIn('mp_crash', maps)
-        self.assertNotIn('mp_killhouse', maps, 'requires supervised qualification')
-        self.assertEqual(len(maps), 15)
+        original_maps = ['mp_convoy', 'mp_bloc', 'mp_bog', 'mp_broadcast',
+                         'mp_countdown', 'mp_crash', 'mp_creek', 'mp_crossfire',
+                         'mp_farm', 'mp_overgrown', 'mp_pipeline', 'mp_showdown',
+                         'mp_strike', 'mp_vacant', 'mp_cargoship']
+        self.assertEqual(maps, original_maps + ['mp_killhouse'])
+        self.assertEqual(values['g_gametype'], 'war')
+        self.assertEqual(values['sv_mapRotation'].split(),
+                         [token for name in maps for token in ('gametype', 'war', 'map', name)])
+        self.assertNotIn('mp_citystreets', maps)
+        self.assertNotIn('mp_unknown', maps)
+        self.assertEqual(values['sv_randomMapRotation'], '0')
+        self.assertEqual(values['btd_anticamp'], '0')
