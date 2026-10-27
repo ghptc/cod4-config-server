@@ -145,3 +145,35 @@ uses the existing workspace catalog validator at exact revision
 requires this GitHub Actions check with an up-to-date branch and no bypass actors.
 Local tests alone do not establish branch protection. See the workspace
 restoration report for live CI evidence and Zombies real-client blockers.
+
+## Zombies Classic policy
+
+The canonical Zombies CFG sets the existing `btd_anticamp` option to `0`.
+The verified Alpha 001 timer dispatcher runs only for `2` or `3`; its map
+teleport dispatcher creates camping-spot triggers only for `1` or `3`.
+Zero suppresses both, allowing stationary play and accessible elevated map
+positions without timer punishment or those forced relocations. No engine
+coordinate validation or other gameplay system is changed. The timer reads the
+setting on player initialization and teleport triggers initialize with the map;
+apply through the normal immutable startup flow and a fresh map, not a live
+dvar toggle.
+
+The existing `btd_msg2` value keeps `^7Server admins are ^4` and replaces only the
+four server administrator names/separators with `pitta`. The original message
+rotation, colors, timing and placement remain controlled by the shipped mod.
+Original author credits and private administrator authentication stay intact.
+Both settings are final mode-owned overrides after vendor and private CFGs.
+Promod configuration and Zombies combat/wave balance remain unchanged.
+
+Source inspection used the original archive identified above and the verified
+plaintext raw-source members `btd_general/_anti_camp_time.gsc` and
+`btd_general/_anti_camp_teleport.gsc`, plus the existing vendor
+`btd_messages.cfg`. No private scripts or vendor configuration copies are
+published. Engine preparation and native behavioral regression results belong
+to the companion `cod4x-server` change. Real-client camping, elevated positions,
+message display, combat, death/respawn, reconnection and map changes still require
+supervised homologation qualification by exact reviewed image digest.
+
+Rollback: revert this configuration commit, rebuild through the existing
+workspace pipeline from reviewed master revisions and obtain operator approval
+before deployment. Existing artifacts are unchanged by catalog edits.
